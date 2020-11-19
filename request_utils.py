@@ -50,8 +50,3 @@ def send_predict_request(url, image):
     r = requests.post(url, data=json.dumps(body), headers=headers)
     r_json = json.loads(r.text)
     return r_json['outputs']['Prediction'][0]
-
-
-url = 'http://localhost:8501/v1/models/sample_model:predict'
-r = predict_from_file(url, 'test.jpg')
-print(r)
