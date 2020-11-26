@@ -21,7 +21,7 @@ prediction_url = 'http://localhost:8501/v1/models/{ model_name }:predict'
 predict_label = predict_from_file(prediction_url, 'image file')
 print(predict_label)
 
-# predict from image_url(.jpg)
+# predict from image_url
 image_url = 'image_url'
 predict_label = predict_from_url(prediction_url, image_url)
 print(predict_label)
