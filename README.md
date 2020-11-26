@@ -3,18 +3,22 @@
 
 Run TensorFlowServing from DcokerImage
 ```
-# docker run -t --rm -p 8501:8501 -v "`pwd`/sample_model:/models/sample_model" -e MODEL_NAME=sample_model tensorflow/serving
+# docker-compose up --build -d
 ```
+if use your original model replace sample_model folder
 
 Use POST requests to make predict.
 ```
-from prediction_request import predict_from_file, predict_from_url
+from request_utils import predict_from_file, predict_from_url
 
 # predict request url
-prediction_url = 'http://localhost:8501/v1/models/sample_model:predict'
+prediction_url = 'http://localhost:8501/v1/models/{ model_name }:predict'
+# if model namse sample_model
+# prediction_url = 'http://localhost:8501/v1/models/{ sample_model }:predict'
+
 
 # predict from image_file
-predict_label = predict_from_file(prediction_url, 'test.jpg')
+predict_label = predict_from_file(prediction_url, 'image file')
 print(predict_label)
 
 # predict from image_url(.jpg)
