@@ -1,7 +1,6 @@
 import json
 from io import BytesIO
 
-import cv2
 import numpy as np
 import requests
 from PIL import Image
